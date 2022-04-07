@@ -27,15 +27,19 @@ $(document).on('click', '#upload-button', function () {
         cache: false,
         contentType: false,
         processData: false,
-
+        beforeSend(jqXHR, settings) {
+            $('#button-spinner').show();
+            $('#upload-button').prop("disabled", true);
+        },
         success: function (data) {
             console.log('Successfully loaded');
         },
         error: function () {
             console.log('error');
-        }
-
-    }).done(() => getSolution());
+        },
+    }).done(() => {
+        getSolution();
+    });
 });
 
 /**
@@ -46,13 +50,14 @@ function getSolution() {
         url: '/sudoku/solve',
         type: 'GET',
         success: function (data) {
-            console.log(data);
             $('#solved-title').html(formSolutionText(data.valid, data.genuine, data.solved));
 
             if (data.valid) {
                 $('#unsolved-title').html('Here\'s your sudoku!');
                 $('#unsolved-wrapper').html(formTable(data.original));
-                $('#solved-wrapper').html(formTable(data.results.forward));
+                if(data.solved) {
+                    $('#solved-wrapper').html(formTable(data.results.forward));
+                }
             } else {
                 $('#unsolved-title').html('Your sudoku file wasn\'t valid');
                 $('#unsolved-wrapper').html('');
@@ -63,6 +68,9 @@ function getSolution() {
         error: function () {
             console.log('error');
         }
+    }).done(() => {
+        $('#button-spinner').hide();
+        $('#upload-button').prop("disabled", false);
     })
 }
 

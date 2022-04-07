@@ -47,7 +47,9 @@
             </div>
             <button type="button" class="btn btn-primary btn-block mt-4" id="upload-button" disabled>
                 Upload file with sudoku
+                <span id="button-spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none"></span>
             </button>
+
         </form>
     </div>
 </div>
