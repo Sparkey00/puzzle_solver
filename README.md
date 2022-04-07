@@ -25,9 +25,15 @@ sudo apt-get install -y php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4
 ```
 sudo apt-get install composer
 ```
+Once it is done - go to the project root and install packages for framework:
+```
+cd puzzle_solver/
+
+composer install
+```
 After that open a terminal and navigate to sudoku/public directory.
 ```
-cd sudoku/public/
+cd public/
 ```
 And start a PHP server:
 ```
