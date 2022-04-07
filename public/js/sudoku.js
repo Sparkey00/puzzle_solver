@@ -57,6 +57,8 @@ function getSolution() {
                 $('#unsolved-wrapper').html(formTable(data.original));
                 if(data.solved) {
                     $('#solved-wrapper').html(formTable(data.results.forward));
+                } else {
+                    $('#solved-wrapper').html('');
                 }
             } else {
                 $('#unsolved-title').html('Your sudoku file wasn\'t valid');
