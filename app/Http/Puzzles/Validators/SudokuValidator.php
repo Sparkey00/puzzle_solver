@@ -82,7 +82,7 @@ class SudokuValidator implements Validator
                 continue;
             }
             if (array_unique(array_diff($column, [0])) != array_diff($column, [0])) {
-                $this->errors[] = 'There are non-unique values in column ' . $i + 1;
+                $this->errors[] = 'There are non-unique values in column ' . ($i + 1);
             }
         }
     }
