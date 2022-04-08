@@ -4,7 +4,7 @@ This app solves sudoku. I'm sure you've already figured that out :D
 It can validate you sudoku, point out problems and determine whether it has one or multiple solutions.
 It is based on Laravel framework. With a side of JQuery.
 
-## Running App
+## Requirements
 
 This application assumes that you have installed PHP 7.4 or newer, Composer and most common php packages.
 In case you're not sure, you can run those commands:
@@ -17,29 +17,31 @@ sudo apt-get update
 sudo apt -y install php7.4
 ```
 
-####Dependencies
+#### Dependencies
 ```
 sudo apt-get install -y php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
 ```
-####Composer
+#### Composer
 ```
 sudo apt-get install composer
 ```
-Once it is done - go to the project root and install packages for framework:
+### Running the App
+
+1) Go to the project root and install packages for framework:
 ```
 cd puzzle_solver/
 
 composer install
 ```
-After that open a terminal and navigate to sudoku/public directory.
+2) Open a terminal and navigate to sudoku/public directory.
 ```
 cd public/
 ```
-And start a PHP server:
+3) Start a PHP server.
 ```
 php -S localhost:8000
 ```
-And navigating to [http://localhost:8000](http://localhost:8000) in your browser.
+4) Navigate to [http://localhost:8000](http://localhost:8000) in your browser.
 
 ## Files
 
