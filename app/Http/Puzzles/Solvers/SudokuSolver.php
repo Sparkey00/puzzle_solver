@@ -58,7 +58,9 @@ class SudokuSolver implements Puzzle
     {
         if ($this->isValid()) {
             $this->solved = $this->iterate(0, 0);
-            $this->iterateReverse(0, 0);
+            if($this->solved) {
+                $this->iterateReverse(0, 0);
+            }
             $this->setIsGenuine();
         }
 
