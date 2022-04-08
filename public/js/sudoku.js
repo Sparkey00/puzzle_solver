@@ -51,7 +51,7 @@ function getSolution() {
         type: 'GET',
         success: function (data) {
             $('#solved-title').html(formSolutionText(data.valid, data.genuine, data.solved));
-
+            console.log(data)
             if (data.valid) {
                 $('#unsolved-title').html('Here\'s your sudoku!');
                 $('#unsolved-wrapper').html(formTable(data.original));
