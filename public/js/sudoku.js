@@ -64,7 +64,7 @@ function getSolution() {
                 $('#unsolved-title').html('Your sudoku file wasn\'t valid');
                 $('#unsolved-wrapper').html('');
 
-                $('#solved-wrapper').html(formTable(data.results));
+                $('#solved-wrapper').html(formTable(data.results, false));
             }
         },
         error: function () {
@@ -107,10 +107,13 @@ function formSolutionText(valid, genuine, solved) {
 /**
  * Forms table for sudoku or errors
  * @param sudoku
+ * @param success
+ *
  * @returns {string}
  */
-function formTable(sudoku) {
-    let html = '<table class="sudoku table">';
+function formTable(sudoku, success = true) {
+    let cssClass = success ? 'sudoku' : 'errors';
+    let html = '<table class="' + cssClass +' table">';
     sudoku.forEach(row => {
             if (Array.isArray(row)) {
                 html += '<tr>';
@@ -122,11 +125,9 @@ function formTable(sudoku) {
                 html += '</tr>';
             } else {
                 html += '<tr>';
-                html += '<td>' + row + '</td>'
+                html += '<td>' + row + '</td>';
                 html += '</tr>';
-
             }
-
         }
     );
     html += '<table>';
