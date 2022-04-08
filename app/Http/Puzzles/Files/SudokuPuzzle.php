@@ -10,7 +10,7 @@ class SudokuPuzzle implements PuzzleFile
     /**
      * @var array loaded sudoku in a form of array
      */
-    private array $puzzle;
+    private array $puzzle = [];
     /**
      * @var mixed
      */
